@@ -41,9 +41,9 @@ export class AppComponent implements OnInit  {
         L.control.scale().addTo(map);
         this.stateService.getStates().subscribe(result => {
             var state_boundary = L.geoJson(result, {
-                onEachFeature: this.onEachFeature
-            });
-            state_boundary.addTo(map);
+                onEachFeature: this.onEachFeature,
+                style: this.stateStyle,
+            }).addTo(map);
         });
         this.mapService.map = map;
 
@@ -52,6 +52,12 @@ export class AppComponent implements OnInit  {
             location => map.panTo([location.latitude, location.longitude]),
             err => console.error(err)
             );
+    }
+
+    stateStyle (state) {
+        return {
+            fillColor: 'green',
+        }
     }
 
     onEachFeature(feature, layer) {
