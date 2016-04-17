@@ -55,6 +55,6 @@ export class AppComponent implements OnInit  {
     }
 
     onEachFeature(feature, layer) {
-        layer.bindPopup('<div>' + feature.properties.NAME + '</div>' + '<div>area: ' + feature.properties.CENSUSAREA + ' </div>');
+        layer.bindPopup('<div class="fa fa-globe">' + '</div>' + '<div>' + feature.properties.NAME + ' </div>' + '<div>area: ' + feature.properties.CENSUSAREA + ' </div > ');
     }
 }
