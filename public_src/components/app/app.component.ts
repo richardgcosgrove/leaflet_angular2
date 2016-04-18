@@ -20,6 +20,7 @@ export class AppComponent implements OnInit  {
     private mapService: MapService;
     private geocoder: GeocodingService;
     private stateService: StateService;
+    Loading: Boolean = true;
 
     constructor(mapService: MapService, geocoder: GeocodingService, stateService: StateService) {
         this.mapService = mapService;
@@ -51,7 +52,8 @@ export class AppComponent implements OnInit  {
             .subscribe(
             location => map.panTo([location.latitude, location.longitude]),
             err => console.error(err)
-            );
+        );
+        setTimeout(() => this.Loading = false, 10000);
     }
 
     stateStyle (state) {

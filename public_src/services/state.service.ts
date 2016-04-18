@@ -14,7 +14,6 @@ export class StateService {
             .get('./states.json')
             .map(res => res.json())
             .map(result => {
-                console.log(result);
                 return result['features'];
             });
     }

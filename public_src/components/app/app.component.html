@@ -9,7 +9,9 @@
         </ul>
     </div>
 </nav>
-
 <div id="map">
     <navigator></navigator>
+    <div class="loader fa-container" *ngIf="Loading">
+            <span class="fa fa-circle-o-notch fa-2x fa-spin fa-fw"></span>
+    </div>
 </div>
