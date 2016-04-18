@@ -53,7 +53,7 @@ export class AppComponent implements OnInit  {
             location => map.panTo([location.latitude, location.longitude]),
             err => console.error(err)
         );
-        setTimeout(() => this.Loading = false, 10000);
+        setTimeout(() => this.Loading = false, 5000);
     }
 
     stateStyle (state) {
