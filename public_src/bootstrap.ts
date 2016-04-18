@@ -4,7 +4,6 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 import {MapService} from './services/map.service';
 import {GeocodingService} from './services/geocoding.service';
 import {StateService } from './services/state.service';
-
-bootstrap(AppComponent, [HTTP_PROVIDERS, MapService, GeocodingService, StateService])
-    .catch(err => console.error(err));
+setTimeout(bootstrap(AppComponent, [HTTP_PROVIDERS, MapService, GeocodingService, StateService])
+    .catch(err => console.error(err)), 5000);
 
