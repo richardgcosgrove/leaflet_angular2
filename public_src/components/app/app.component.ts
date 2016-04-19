@@ -68,9 +68,9 @@ export class AppComponent implements OnInit  {
     }
 
     onEachFeature(feature, layer) {
-        layer.bindPopup('<span class="fa fa-globe fa-5x">' + '</span>' + '<div class="name" style="font-size:40pt">' + feature.properties.NAME + ' </div>' + '<div class="area" style="font-size:20pt">area: ' + feature.properties.CENSUSAREA + ' mi<sup>2</sup></div > ',{
-            'className': 'custom-popup'
-            });
+        layer.bindPopup('<span class="fa fa-globe fa-5x">' + '</span>' +
+         '<div class="name">' + feature.properties.NAME + ' </div>' +
+          '<div class="area" >area: ' + feature.properties.CENSUSAREA + ' mi<sup>2</sup></div > ');
         layer.on({
             click: e => {
                 layer.setStyle({

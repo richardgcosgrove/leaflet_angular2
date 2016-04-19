@@ -4,7 +4,6 @@ var path = require('path');
 var HtmlWebpackPlugin  = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-
 var srcDir = 'public_src';
 var outputDir = 'public';
 
@@ -13,6 +12,7 @@ module.exports = {
     debug: true,
     entry: {
         libs: path.resolve(srcDir, 'libs.ts'),
+        index: path.resolve(srcDir, ''),
         app: path.resolve(srcDir, 'bootstrap.ts')
     },
     output: {
@@ -29,6 +29,7 @@ module.exports = {
             { test: /(\.component|\.service|)\.ts$/, loader: 'ts-loader'},
             { test: /\.component\.html$/, loader: 'raw' },
             { test: /(\.component|)\.less$/, loader: 'to-string!css!less' },
+            { test: /index\.less$/, loader: 'style-loader!css-loader!less-loader' },
             { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
             { test: /\.(png|gif|jpg)$/, loader: "file?name=images/[name].[ext]" },
             // For font-awesome, created by Turbo87:
