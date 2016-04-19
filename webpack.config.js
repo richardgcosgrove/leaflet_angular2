@@ -49,6 +49,9 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
                     { from: path.resolve(srcDir, 'data/states.json') }
+                ]),
+        new CopyWebpackPlugin([
+                    { from: path.resolve(srcDir, 'web.config') }
                 ])
     ]
 };
