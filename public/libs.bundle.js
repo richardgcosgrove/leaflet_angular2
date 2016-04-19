@@ -45,14 +45,14 @@
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	/// <reference path="../typings/leaflet/leaflet.d.ts"/>
 	/// <reference path="./typings/require.d.ts"/>
-	"use strict";
 	__webpack_require__(248);
 	__webpack_require__(264);
+	// require('../node_modules/bootstrap/dist/css/bootstrap.css');
 	__webpack_require__(265);
-	__webpack_require__(274);
-	__webpack_require__(282);
+	__webpack_require__(275);
 
 
 /***/ },
@@ -11676,14 +11676,7 @@
 
 /***/ },
 
-/***/ 274:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 282:
+/***/ 275:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

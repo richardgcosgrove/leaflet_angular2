@@ -5,27 +5,73 @@ body {
 
 #map {
     position:absolute;
-    top:50px;
+    top:0;
     bottom:0;
     width:100%;
 }
 
-.name {
-    font-size:40pt;
+.custom-popup {
+    .leaflet-popup-content-wrapper {
+  background:#2c3e50;
+  color:#fff;
+  font-size:16px;
+  line-height:24px;
+  }
+.leaflet-popup-content-wrapper a {
+  color:rgba(255,255,255,0.5);
+  }
+ .leaflet-popup-tip-container {
+  width:30px;
+  height:15px;
+  }
+ .leaflet-popup-tip {
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+  border-top:15px solid #2c3e50;
+  }
+    .name {
+        font-size:40pt;
+    }
+
+    .area {
+        font-size : 20pt;
+    }
 }
 
-.area {
-    font-size : 20pt;
+.nav-fixed {
+    margin: 0px 0px 5px 0px;
+        background-color: blue;
+    .nav-wrapper {
+        margin:0;
+        padding:0;
+        background-color: blue;
+    }
 }
 
 .fa-container {
-
-    position:absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    z-index:20;
+    height:100%;
+    width:100%;
+    div {
+        height:100px;
+        width:100px;
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
 
     margin: auto;
+
+    -webkit-animation: fade 5s infinite linear;
+    .fa {
+            color : yellow;
+        }
+    }
+
+    @-webkit-keyframes fade {
+        0%  {-webkit-transform: scale(2,2);}
+        100% {-webkit-transform: scale(0,0);}
+    }
 }
 

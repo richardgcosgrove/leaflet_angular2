@@ -1,3 +1,4 @@
+"use strict";
 import {Http, Headers, Response} from 'angular2/http';
 import {Location} from '../core/location.class';
 import {Injectable} from 'angular2/core';

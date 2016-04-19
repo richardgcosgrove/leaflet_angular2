@@ -1,3 +1,4 @@
+"use strict";
 /// <reference path="../../../typings/leaflet/leaflet.d.ts"/>
 
 import {Component} from 'angular2/core';

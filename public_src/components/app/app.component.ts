@@ -1,3 +1,4 @@
+"use strict";
 /// <reference path="../../../typings/leaflet/leaflet.d.ts"/>
 
 import {Component, OnInit} from 'angular2/core';
@@ -20,7 +21,6 @@ export class AppComponent implements OnInit  {
     private mapService: MapService;
     private geocoder: GeocodingService;
     private stateService: StateService;
-    Loading: Boolean = true;
 
     constructor(mapService: MapService, geocoder: GeocodingService, stateService: StateService) {
         this.mapService = mapService;
@@ -41,9 +41,21 @@ export class AppComponent implements OnInit  {
         L.control.layers(this.mapService.baseMaps).addTo(map);
         L.control.scale().addTo(map);
         this.stateService.getStates().subscribe(result => {
-            var state_boundary = L.geoJson(result, {
+            L.geoJson(result, {
                 onEachFeature: this.onEachFeature,
-                style: this.stateStyle,
+                style: state => {
+                    {
+                        if (!localStorage.getItem(state.properties.NAME)) {
+                            return {
+                                fillColor: 'green',
+                            }
+                        } else {
+                            return {
+                                fillColor: 'blue',
+                            }
+                        }
+                    }
+                }  ,
             }).addTo(map);
         });
         this.mapService.map = map;
@@ -52,17 +64,22 @@ export class AppComponent implements OnInit  {
             .subscribe(
             location => map.panTo([location.latitude, location.longitude]),
             err => console.error(err)
-        );
-        setTimeout(() => this.Loading = false, 5000);
-    }
-
-    stateStyle (state) {
-        return {
-            fillColor: 'green',
-        }
+        );;
     }
 
     onEachFeature(feature, layer) {
-        layer.bindPopup('<div class="fa fa-globe">' + '</div>' + '<div>' + feature.properties.NAME + ' </div>' + '<div>area: ' + feature.properties.CENSUSAREA + ' </div > ');
+        layer.bindPopup('<span class="fa fa-globe fa-5x">' + '</span>' + '<div class="name" style="font-size:40pt">' + feature.properties.NAME + ' </div>' + '<div class="area" style="font-size:20pt">area: ' + feature.properties.CENSUSAREA + ' </div > ',{
+            'className': 'custom-popup'
+            });
+        layer.on({
+            click: e => {
+                layer.setStyle({
+                    fillColor: 'blue',
+                });
+                if (!localStorage.getItem(feature.properties.NAME)){
+                    localStorage.setItem(feature.properties.NAME, feature.properties.NAME);
+                }
+            }
+        })
     }
 }

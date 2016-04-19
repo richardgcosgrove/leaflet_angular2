@@ -1,3 +1,4 @@
+"use strict";
 import {ILatLng} from './latLng.interface';
 import {LatLngBounds} from 'leaflet';
 

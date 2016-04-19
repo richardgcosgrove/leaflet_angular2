@@ -1,17 +1,17 @@
-<nav class="navbar nav-default navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="#" scroll-to="welcome" offset="50"><span>States Leaflet Example</span></a>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-left">
-            <li><a href="https://github.com/richardgcosgrove/leaflet_angular2" target="_blank">gitHub</a></li>
-            <li><a href="https://github.com/haoliangyu/angular2-leaflet-starter" target="_blank">Seed gitHub</a></li>
-        </ul>
-    </div>
-</nav>
-<div id="map">
+<div class="navbar-fixed">
+    <nav >
+        <dir class="nav-wrapper">
+            <a class="brand-logo center" href="#" scroll-to="welcome" offset="50"><span>States Leaflet Example</span></a>
+            <ul  class="left">
+                <li><a href="https://github.com/richardgcosgrove/leaflet_angular2" target="_blank">gitHub</a></li>
+                <li><a href="https://github.com/haoliangyu/angular2-leaflet-starter" target="_blank">Seed gitHub</a></li>
+            </ul>
+        </dir>
+    </nav>
+</div>
+<div class="custom-popup" id="map">
     <navigator></navigator>
-    <div class="loader fa-container" *ngIf="Loading">
-            <span class="fa fa-circle-o-notch fa-2x fa-spin fa-fw"></span>
+    <div class="loader fa-container" >
+            <div><span class="fa fa-globe fa-5x fa-fw"></span></div>
     </div>
 </div>
