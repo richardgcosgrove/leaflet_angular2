@@ -68,8 +68,11 @@ export class AppComponent implements OnInit  {
     }
 
     onEachFeature(feature, layer) {
-        layer.bindPopup('<span class="fa fa-globe fa-5x">' + '</span>' +
+        layer.bindPopup(
+            (feature.properties.CENSUSAREA > 20000 ? '<span class="fa  fa-thumbs-up fa-5x"></span>' : '<span class="fa  fa-thumbs-down fa-5x"></span>') +
+            '<span class="fa fa-globe fa-5x"></span>' +
          '<div class="name">' + feature.properties.NAME + ' </div>' +
+            (feature.properties.NAME === 'Delaware' ? "<span>#1!</span>" : '') +
           '<div class="area" >area: ' + feature.properties.CENSUSAREA + ' mi<sup>2</sup></div > ');
         layer.on({
             click: e => {
